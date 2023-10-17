@@ -2,16 +2,16 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 import streamlit as st
 
-def initialize_firebase_object():
-    cred = credentials.Certificate("PATH_TO_FIREBASE_AUTH")
+# def initialize_firebase_object():
+#     cred = credentials.Certificate("PATH_TO_FIREBASE_AUTH")
 
-    try:
-        firebase_admin.get_app()
-    except ValueError as e:
-        firebase_admin.initialize_app(cred)
+#     try:
+#         firebase_admin.get_app()
+#     except ValueError as e:
+#         firebase_admin.initialize_app(cred)
 
-    db = firestore.client()
-    return db
+#     db = firestore.client()
+#     return db
 
 def get_word_info(word_data_list):
     hints ={}
