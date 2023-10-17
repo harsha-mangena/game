@@ -8,13 +8,12 @@ col1, col2, col3 = st.columns(3)
 # Constants
 MIN_LENGTH = 3
 MAX_LENGTH = 10
-DEFAULT_LENGTH = 5
 MAX_RETRIES = 6
 MAX_FILL_A_LETTER_CLICKS = 2
 GAME_TIME_MINUTES = 3
 
 def select_word_length():
-    return st.slider('Select Word Length', min_value=MIN_LENGTH, max_value=MAX_LENGTH, value=DEFAULT_LENGTH)
+    return st.slider('Select Word Length', min_value=MIN_LENGTH, max_value=MAX_LENGTH, value=MIN_LENGTH)
 
 def initialize_game(word_info, is_timed=False):
     if is_timed:
@@ -171,7 +170,4 @@ def update_retries(user_input):
             st.toast("You've run out of retries! Better luck next time.")
             # Here you could also trigger any events that should occur when the game is over
             # Like revealing the correct word or resetting the game
-    else:
-        st.success("Congratulations! You've guessed the correct word!")
-        # Here, you might want to handle the event when the user guesses the word correctly
 
