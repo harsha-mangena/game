@@ -1,13 +1,11 @@
 # main_app.py
 import streamlit as st
-from src.pages import home, login, registration
+from src.pages import home
 from src.pages.game_modes import home_mode, free_style, time_mode
 
 def __get_page_redirect(page) -> callable:
     PAGE_FUNCTION = {
         "home": home.show_homepage,
-        "login": login.login_user,
-        "register": registration.register_user,
         "game_page" : home_mode.show_gameplay,
         "free_style_mode" : free_style.play_free_style,
         "time_mode": time_mode.play_time_mode
