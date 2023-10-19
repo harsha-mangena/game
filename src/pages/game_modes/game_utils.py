@@ -3,6 +3,7 @@ import streamlit as st
 import random
 from datetime import datetime, timedelta
 import time
+import string
 col1, col2, col3 = st.columns(3)
 
 # Constants
@@ -64,14 +65,36 @@ def handle_guess_input(is_timed=False):
     user_guesses = []
     all_filled = True
 
-    # Collect guesses from the user, or disable the input if the time is up or max guesses are reached
     for i, _ in enumerate(st.session_state.word):
         guess = cols[i].text_input("", value=st.session_state.user_guesses[i], key=f"letter_{i}", max_chars=1, disabled=input_disabled)
         user_guesses.append(guess.lower())
         if guess == "":
             all_filled = False
 
+    # Display letter buttons
+    cols = st.columns(7)
+
+    for i, letter in enumerate(string.ascii_lowercase):
+        with cols[i % 7]:
+        # Check if the letter is in the target word
+            if letter in st.session_state.word:
+                indices = [i for i, main_letter in enumerate(st.session_state.word) if main_letter not in st.session_state.display_word]
+                if indices:
+                    # If the letter is clicked, fill it in the input box
+                    if st.button(letter, key=f"button_{letter}", disabled=input_disabled):
+                        for idx, ltr in enumerate(st.session_state.word):
+                            if ltr == letter:
+                                st.session_state.user_guesses[idx] = letter
+                        st.rerun()
+            else:
+                # If the letter is not in the word, provide feedback to the user only when clicked
+                if st.button(letter, key=f"button_{letter}", disabled=input_disabled):
+                    if st.session_state.max_guesses > 0 and not input_disabled:
+                        st.toast(f"{letter} is not a valid letter!")
+
+
     st.session_state.user_guesses = user_guesses
+
 
     if all_filled:
         return all_filled, user_guesses
@@ -118,12 +141,12 @@ def handle_hint(word_info):
 
 def handle_quit():
     # Fill in the correct word
-    st.session_state.user_guesses = list(st.session_state.word)
+    # st.session_state.user_guesses = list(st.session_state.word)
     
     # Optional: You might want to display a message or otherwise indicate that the game is over.
     st.info("Game over. \n The word was: " + st.session_state.word)
 
-    time.sleep(3)
+    time.sleep(2)
     st.session_state.clear()
     st.session_state.page = 'home'
 
