@@ -8,10 +8,10 @@ col1, col2, col3 = st.columns(3)
 
 # Constants
 MIN_LENGTH = 3
-MAX_LENGTH = 10
+MAX_LENGTH = 8
 MAX_RETRIES = 6
 MAX_FILL_A_LETTER_CLICKS = 2
-GAME_TIME_MINUTES = 3
+GAME_TIME_MINUTES = 15
 
 def select_word_length():
     return st.slider('Select Word Length', min_value=MIN_LENGTH, max_value=MAX_LENGTH, value=MIN_LENGTH)
@@ -20,7 +20,7 @@ def initialize_game(word_info, is_timed=False):
     if is_timed:
         if 'start_time' not in st.session_state:
             st.session_state.start_time = datetime.now()
-            st.session_state.end_time = st.session_state.start_time + timedelta(minutes=3)  # 3 minutes from now
+            st.session_state.end_time = st.session_state.start_time + timedelta(minutes=15)  # 15 minutes from now
     
     if 'word' not in st.session_state:
         st.session_state.word = word_info['Word'].lower()
@@ -72,6 +72,8 @@ def handle_guess_input(is_timed=False):
             all_filled = False
 
     # Display letter buttons
+    st.write("")
+    st.write("")
     cols = st.columns(7)
 
     for i, letter in enumerate(string.ascii_lowercase):
@@ -91,6 +93,8 @@ def handle_guess_input(is_timed=False):
                 if st.button(letter, key=f"button_{letter}", disabled=input_disabled):
                     if st.session_state.max_guesses > 0 and not input_disabled:
                         st.toast(f"{letter} is not a valid letter!")
+                        # Decrease the number of retries left
+                        update_retries(st.session_state.user_guesses)
 
 
     st.session_state.user_guesses = user_guesses
@@ -191,6 +195,5 @@ def update_retries(user_input):
             st.toast(f"Incorrect! You have {st.session_state.max_guesses} retries left.")
         else:
             st.toast("You've run out of retries! Better luck next time.")
-            # Here you could also trigger any events that should occur when the game is over
-            # Like revealing the correct word or resetting the game
+            st.snow()
 
