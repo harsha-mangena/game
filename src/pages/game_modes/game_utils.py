@@ -32,6 +32,9 @@ def initialize_game(word_info, is_timed=False):
     if 'user_guesses' not in st.session_state:
         st.session_state.user_guesses = [""] * len(st.session_state.word)
 
+    if 'guesses' not in st.session_state:
+        st.session_state.guesses = []
+
 def display_hints_sidebar():
     st.sidebar.title("Hints")
     if st.session_state.hints_taken:
@@ -82,23 +85,24 @@ def handle_guess_input(is_timed=False):
             if letter in st.session_state.word:
                 indices = [i for i, main_letter in enumerate(st.session_state.word) if main_letter not in st.session_state.display_word]
                 if indices:
+                    print(st.session_state.guesses)
                     # If the letter is clicked, fill it in the input box
-                    if st.button(letter, key=f"button_{letter}", disabled=input_disabled):
+                    if st.button(letter, key=f"button_{letter}", disabled=(input_disabled or (letter in st.session_state.guesses))):
+                        st.session_state.guesses.append(letter)
                         for idx, ltr in enumerate(st.session_state.word):
                             if ltr == letter:
                                 st.session_state.user_guesses[idx] = letter
                         st.rerun()
             else:
                 # If the letter is not in the word, provide feedback to the user only when clicked
-                if st.button(letter, key=f"button_{letter}", disabled=input_disabled):
+                if st.button(letter, key=f"button_{letter}", disabled=(input_disabled or (letter in st.session_state.guesses))):
+                    st.session_state.guesses.append(letter)
                     if st.session_state.max_guesses > 0 and not input_disabled:
                         st.toast(f"{letter} is not a valid letter!")
                         # Decrease the number of retries left
                         update_retries(st.session_state.user_guesses)
 
-
     st.session_state.user_guesses = user_guesses
-
 
     if all_filled:
         return all_filled, user_guesses
