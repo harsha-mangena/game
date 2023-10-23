@@ -24,7 +24,7 @@ We have two main game modes, Free Play and Timed
 
 In free play there is no time limit simply guess until you either win or lose
 
-In Timed mode you have a ten-minute time limit to guess the word. If after ten minutes you have not guessed the word you lose
+In Timed mode you have a fifteen-minute time limit to guess the word. If after fifteen minutes you have not guessed the word you lose
 
 ## Tech Stack
 
