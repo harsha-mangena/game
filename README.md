@@ -47,9 +47,9 @@ Our game is engineered using the powerful Django Web Framework coupled with the 
 
 Want to host your own version of the game? Easy-peasy!
 
-1. Install Streamlit via pip: 
-2. Clone the repository to your local machine.
-3. Inside the game folder, execute: 
+1. Install Streamlit via pip: `pip install streamlit`
+2. Clone the repository to your local machine: `git clone <GIT-REPO>` 
+3. Inside the game folder, execute: `streamlit run <filename.py>` 
 Voilà! Your game is now live!
 
 ## 💭 Development Reflection
