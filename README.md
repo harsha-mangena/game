@@ -65,7 +65,30 @@ Realigning our focus, we re-established transparent communication channels, whic
 
 ## 🥂 Conclusion and Future Scope
 
-In retrospect, we successfully navigated through the challenges, emerging on the other side with a functional, sophisticated, and enjoyable 'Hangman Game'. This journey enriched us not just as developers, but also as team players and communicators.
+We began the development process by discussing our tech stack and finalized it early on. 
+Then at a later date we began the development of our application. We worked incrementally
+and over time a functional application was completed. We believe that our early discussions
+worked quite well, we finalized design decisions quite quickly and with little disagreement.
+During the time in which we were communicating clearly, and often we had little issues or 
+confusion. However, later in the design process we all got quite busy with other projects 
+and had a few lapses in communication which resulted in some confusion. There was work being
+done more than once or being made obsolete. At one point a new repository was created which 
+caused some minor confusion at certain points. This caused some issues in the design process 
+as we did not communicate effectively on what was being done or was in the works. After this 
+period of confusion we began more clear communication and continued on to create a functional 
+application. We think that this period of communication was quite effective, and we were able 
+to work out bugs and complete the application with few further issues. There were a number of 
+lessons learned here such as the importance of proper communication within a team. We had a few 
+issues with communication and all agree that had we communicated more clearly and more often we 
+could have avoided several of the main issues that we faced. We also learned many skills relating 
+to web development. While we all had some prior experience none of us are experts in web development, 
+and thus we had to learn many skills within the scope of this project such as utilizing apis, 
+UI/UX development, and more. This allowed us to all grow as developers and to further hone our skills 
+in web development. Overall we feel that this project went reasonably well and that we created a well-made, 
+functional project. While we had some minor communication issues we worked through them and were able to 
+increase our skills not just as developers but as team members. These experiences will allow us to be 
+significantly more effective as software developers in the future and will be greatly beneficial in 
+future endeavors.  
 
 The adventure doesn't end here, though! We're excited about potential future enhancements, from integrating more complex word puzzles to introducing competitive multiplayer modes. The possibilities are endless, and we look forward to continuing this journey!
 
