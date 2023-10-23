@@ -24,17 +24,31 @@ def show_homepage():
             with st.expander("How to Play 👇", expanded=True):
                 st.write(
                     """
-                    **Hangman** is a paper and pencil guessing game for two or more players. One player thinks of a word, 
-                    and the others try to guess it by suggesting letters within a certain number of guesses.
-                    - Click "Start" to begin the game.
-                    - You will be given a word to guess, represented by a row of dashes, representing each letter of the word.
-                    - You guess by suggesting a letter, which you believe may be a part of the word.
-                    - If the word contains the suggested letter, the computer fills in the blanks with that letter in the right position.
-                    - If the word does not contain the suggested letter, the computer draws one element of a hangman’s gallows.
-                    - The game is over either when the player guesses the complete word, or the hangman's body is fully drawn.
-                    Good luck!
+                    **Hangman** is a classic paper and pencil guessing game for two or more players. One player thinks of a word, 
+                    and the others try to guess it by suggesting letters within a certain number of guesses. In our digital version, 
+                    you'll play against the computer, and you'll have some extra help at your disposal!
+
+                    Here's how it works:
+
+                    - **Starting the Game**: Click "Start" to begin. You'll be given a word to guess, represented by a row of dashes, 
+                    indicating each letter of the word.
+                    - **Making a Guess**: Suggest a letter you believe may be part of the word. If correct, the letter will appear in its 
+                    correct position(s) in the word. If incorrect, part of the hangman's gallows will be drawn.
+                    - **Winning and Losing**: The game ends when you either guess the word correctly or the hangman's body is fully drawn.
+
+                    **Game Modes**:
+                    - **Free Mode**: Play at your own pace. There's no time limit, so take your time thinking of your next letter.
+                    - **Time Mode**: Race against the clock! You'll have a set amount of time to guess the word before the hangman is complete.
+
+                    **Need Some Help?**:
+                    - **Take a Hint**: Stuck on a word? Click the "Take a Hint" button for a nudge in the right direction. But use it wisely—you only have a few hints!
+                    - **Fill a Letter**: Need a little more help? Use the "Fill a Letter" option to reveal one of the letters in the word. 
+                    But remember, you can only use this help a limited number of times.
+
+                    Ready to test your word-guessing skills? Let's play Hangman!
                     """
                 )
+
 
             # Row of columns, mainly using the middle one for the 'Start' button
             _col1, _col2, _col3 = st.columns(3)
