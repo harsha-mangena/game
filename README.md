@@ -3,7 +3,7 @@
 Dive into the classic word guessing game with a digital twist. Perfect for word game enthusiasts and those looking to challenge their vocabulary!
 
 ## 📜 Table of Contents
-- [Game Link](#Website)
+- [Game Link](https://thehangman.streamlit.app/)
 - [Introduction](#introduction)
 - [Game Objectives](#game-objectives)
 - [Game Rules](#game-rules)
