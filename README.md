@@ -15,7 +15,7 @@ Dive into the classic word guessing game with a digital twist. Perfect for word 
 - [Lessons Learned](#lessons-learned)
 - [Conclusion and Future Scope](#conclusion-and-future-scope)
 
-## Game Link
+## 🎮 Game Link
 https://thehangman.streamlit.app
 
 ## 🌟 Introduction
