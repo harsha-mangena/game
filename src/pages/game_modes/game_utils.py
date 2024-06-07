@@ -1,9 +1,10 @@
 # game_utils.py
 import streamlit as st
-import random
 from datetime import datetime, timedelta
 import time
 import string
+import secrets
+
 col1, col2, col3 = st.columns(3)
 
 # Constants
@@ -120,7 +121,7 @@ def handle_fill_a_letter():
     if st.session_state.fill_a_letter_clicks < 2:
         indices = [i for i, letter in enumerate(st.session_state.word) if letter not in st.session_state.display_word]
         if indices:
-            chosen_index = random.choice(indices)
+            chosen_index = secrets.choice(indices)
             chosen_letter = st.session_state.word[chosen_index]
             for i, letter in enumerate(st.session_state.word):
                 if letter == chosen_letter:
